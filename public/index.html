@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIFF Starter with Firebase</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="liffAppContent">
+            <!-- ACCESS TOKEN DATA -->
+            <div id="accessTokenData" class="hidden textLeft">
+                <h2>Access Token</h2>
+                <table>
+                    <tr>
+                        <th>accessToken</th>
+                        <td id="accessTokenField"></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- FIREBASE CUSTOM TOKEN DATA -->
+            <div id="customTokenData" class="hidden textLeft">
+                <h2>Firebase Custom Token</h2>
+                <table>
+                    <tr>
+                        <th>customToken</th>
+                        <td id="customTokenField"></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- LIFF DATA -->
+            <div id="liffData">
+                <h2 id="liffDataHeader" class="textLeft">LIFF Data</h2>
+                <table>
+                    <tr>
+                        <th>OS</th>
+                        <td id="deviceOS" class="textLeft"></td>
+                    </tr>
+                    <tr>
+                        <th>Language</th>
+                        <td id="browserLanguage" class="textLeft"></td>
+                    </tr>
+                    <tr>
+                        <th>LIFF SDK Version</th>
+                        <td id="sdkVersion" class="textLeft"></td>
+                    </tr>
+                    <tr>
+                        <th>LINE Version</th>
+                        <td id="lineVersion" class="textLeft"></td>
+                    </tr>
+                    <tr>
+                        <th>isInClient</th>
+                        <td id="isInClient" class="textLeft"></td>
+                    </tr>
+                    <tr>
+                        <th>isLoggedIn</th>
+                        <td id="isLoggedIn" class="textLeft"></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- LOGIN LOGOUT BUTTONS -->
+            <div class="buttonGroup">
+                <button id="liffLoginButton">Log in</button>
+                <button id="liffLogoutButton">Log out</button>
+            </div>
+            <div id="statusMessage">
+                <div id="isInClientMessage"></div>
+                <div id="apiReferenceMessage">
+                    <p>Available LIFF methods vary depending on the browser you use to open the LIFF app.</p>
+                    <p>Please refer to the <a href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">API reference page</a> for more information.</p>
+                </div>
+            </div>
+        </div>
+        <!-- LIFF ID ERROR -->
+        <div id="liffIdErrorMessage" class="hidden">
+            <p>You have not assigned any value for LIFF ID.</p>
+            <p>Your Cloud Functions endpoint might return wrong value. Please refer to network calls in dev tools to see error messages.</p>
+        </div>
+        <!-- LIFF INIT ERROR -->
+        <div id="liffInitErrorMessage" class="hidden">
+            <p>Something went wrong with LIFF initialization.</p>
+            <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.</p>
+        </div>
+        <!-- CLOUD FUNCTION LIFF ID ERROR -->
+        <div id="cfLiffIdErrorMessage" class="hidden">
+            <p>Unable to receive the LIFF ID from Cloud Function.</p>
+        </div>
+        <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="/__/firebase/7.15.4/firebase-app.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="/__/firebase/7.15.4/firebase-auth.js"></script>
+        <script src="/__/firebase/7.15.4/firebase-firestore.js"></script>
+
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
+
+        <script src="liff-starter.js"></script>
+    </body>
+</html>
